@@ -1,0 +1,36 @@
+{
+  "name": "a11y-mcp",
+  "main": "src/worker.ts",
+  "compatibility_date": "2026-11-01",
+  // Without this flag, fetches to our own joelwatson.com hosts would skip Cloudflare's front door.
+  "compatibility_flags": ["global_fetch_strictly_public"],
+  // A dense 2 MB page parses and checks in about 1 s of CPU (measured on Node), so 5 s leaves
+  // ample headroom while capping what one abusive request can cost. A page that
+  // exceeds it fails with an error, not a friendly refusal.
+  "limits": { "cpu_ms": 5000 },
+  // Two rate limits (each counted per Cloudflare location). MCP_IP_LIMITER is per caller
+  // address, so one noisy caller is stopped by its own bucket and cannot lock out the rest. It is
+  // roomy (40 a minute) because Anthropic's connector proxy sends many people's requests from
+  // a few shared addresses. MCP_LIMITER is one shared bucket, the cost ceiling for the public,
+  // authless endpoint, set well above the per-caller one so the per-caller limit binds first.
+  "ratelimits": [
+    { "name": "MCP_IP_LIMITER", "namespace_id": "1002", "simple": { "limit": 40, "period": 60 } },
+    { "name": "MCP_LIMITER", "namespace_id": "1001", "simple": { "limit": 120, "period": 60 } }
+  ],
+  // SELF_HOSTNAME: the only host refused by name, so a scan cannot call back into
+  // this Worker. Not the whole zone: the demo pages may live on joelwatson.com, and
+  // global_fetch_strictly_public already routes other same-zone fetches publicly.
+  "vars": { "DOCS_URL": "https://joelwatson.com/a11y-mcp/", "SELF_HOSTNAME": "a11y-mcp.joelwatson.com" },
+  // custom_domain: Cloudflare creates the one DNS record and certificate for this
+  // subdomain itself, so no apex, MX, SPF or DKIM records are touched.
+  "routes": [{ "pattern": "a11y-mcp.joelwatson.com", "custom_domain": true }],
+  // One public surface only: no *.workers.dev address and no per-version preview
+  // URLs, which would bypass the custom domain and double what has to be watched.
+  "workers_dev": false,
+  "preview_urls": false,
+  // Logs on, traces explicitly off. Traces would record every outgoing fetch, which includes the
+  // address of the page being scanned and the host name sent to DNS-over-HTTPS; the privacy text in
+  // docs/connector-page.md promises those are not kept. Turning traces on means rewriting that text.
+  // Query strings are also stripped from logged request URLs, in case a client ever sends one to /mcp.
+  "observability": { "enabled": true, "redact_query_string": true, "traces": { "enabled": false } }
+}

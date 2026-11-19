@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+  <!-- TEST FIXTURE: this page is deliberately inaccessible so the scanner has real problems to find
+       (no lang, no title, no h1, a skipped heading level, images without alt, an unnamed link and button,
+       an unlabelled field, a field labelled only by its placeholder, and a viewport that blocks zoom). The accessible version is after.html. -->
+  <div class="page">
+    <p class="note">Test page: this fictional page has accessibility problems on purpose, so a scan has something to find. The fixed version is <a href="after.html">after.html</a>.</p>
+    <h2>Welcome to Acme Dental</h2>
+    <p>We are a family dental practice offering checkups, cleanings, whitening and emergency care. Call us or book online to find a time that suits you this week.</p>
+    <img src="img/team.svg">
+    <img src="img/office.svg">
+    <img src="img/logo.svg" alt="Acme Dental logo">
+    <a href="#book"><img src="img/book-icon.svg"></a>
+    <h4>Our services</h4>
+    <form id="book" action="#">
+      <input type="text" name="name">
+      <input type="email" placeholder="Your email">
+      <button><img src="img/arrow.svg"></button>
+    </form>
+  </div>
+</body>
+</html>

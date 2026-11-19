@@ -1,0 +1,28 @@
+{
+  "manifest_version": "0.3",
+  "name": "accessibility-mcp-demo",
+  "display_name": "Accessibility Page Check (demo)",
+  "version": "0.2.2",
+  "description": "Ask Claude to check a public web page for common accessibility problems and get a plain-English answer.",
+  "long_description": "A small demo of a custom Claude connector. Give Claude a public web page address and it runs ten basic checks (seven WCAG 2.1 A/AA criteria and three best practices), then explains what is wrong, why it matters to real people and how to fix it, worst problems first. Automated checks flag likely problems; they cannot prove a page is accessible and the results are not evidence of legal compliance. The connector only reads public http and https pages, stores nothing and needs no account.",
+  "author": { "name": "Joel Watson" },
+  "repository": { "type": "git", "url": "https://github.com/KWADMOD/accessibility-mcp-demo" },
+  "license": "MIT",
+  "keywords": ["accessibility", "wcag", "a11y", "audit"],
+  "server": {
+    "type": "node",
+    "entry_point": "dist/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/dist/index.js"]
+    }
+  },
+  "tools": [
+    { "name": "scan_page", "description": "Check one public web page for common accessibility problems and return a plain-English report." },
+    { "name": "list_scan_targets", "description": "List the scan backends available to scan_page." }
+  ],
+  "compatibility": {
+    "platforms": ["win32", "darwin", "linux"],
+    "runtimes": { "node": ">=22.12.0" }
+  }
+}

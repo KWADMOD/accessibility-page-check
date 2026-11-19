@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accessibility Page Check: demo pages</title>
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <main id="main" class="page">
+    <h1>Accessibility Page Check: demo pages</h1>
+    <p>These pages are for trying the Accessibility Page Check connector for Claude. Ask Claude to scan one of them and it will explain, in plain English, what is wrong and how to fix it.</p>
+    <p class="note">Automated checks flag likely problems. They cannot prove a page is accessible, and the results are not evidence of legal compliance.</p>
+    <h2>The two test pages</h2>
+    <ul class="links">
+      <li><a href="before.html">before.html</a>: a fictional dental practice page with accessibility problems on purpose. A scan finds ten kinds of problem.</li>
+      <li><a href="after.html">after.html</a>: the same page, fixed. A scan finds none of the ten problems, which is not the same as being fully accessible.</li>
+    </ul>
+    <h2>Try it</h2>
+    <p>With the connector installed, give Claude the full web address of either page, for example:</p>
+    <ul>
+      <li>Check the before page for accessibility problems.</li>
+      <li>Which three problems on that page should I fix first, and why do they matter?</li>
+      <li>Now scan the after page. What does a clean result tell me, and what does it not?</li>
+    </ul>
+    <h2>What the scan does not check</h2>
+    <p>It reads the raw page only. It does not check colour contrast, keyboard use, video captions, or anything a page builds with JavaScript after loading. A real accessibility review also needs manual testing.</p>
+  </main>
+</body>
+</html>

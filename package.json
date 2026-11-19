@@ -1,0 +1,34 @@
+{
+  "name": "accessibility-mcp-demo",
+  "version": "0.2.2",
+  "description": "Demo MCP server that lets Claude run basic accessibility checks on a web page through a swappable scan target.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "main": "dist/index.js",
+  "scripts": {
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
+    "prebuild": "npm run clean",
+    "build": "tsc",
+    "pretest": "npm run clean",
+    "test": "tsc && node --test dist",
+    "start": "node dist/index.js",
+    "worker:check": "wrangler deploy --dry-run --outdir build/worker",
+    "worker:dev": "wrangler dev",
+    "worker:deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "cheerio": "^1.2.0",
+    "htmlparser2": "^10.1.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@anthropic-ai/mcpb": "^2.1.2",
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2",
+    "wrangler": "^4.164.0"
+  }
+}

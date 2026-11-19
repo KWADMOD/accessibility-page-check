@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Acme Dental: family dentist (demo page, accessible version)</title>
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="page">
+    <div class="brand">
+      <!-- Decorative: the name is right beside it, so a screen reader should not say it twice. -->
+      <img src="img/logo.svg" alt="" width="48" height="48">
+      <span>Acme Dental</span>
+    </div>
+  </header>
+  <main id="main" class="page">
+    <h1>Welcome to Acme Dental</h1>
+    <p class="note">Demo page: this fictional page is the fixed version of <a href="before.html">before.html</a>. Submitting the form only reloads this page; nothing you type is sent.</p>
+    <p>We are a family dental practice offering checkups, cleanings, whitening and emergency care. Call us or book online to find a time that suits you this week.</p>
+    <img src="img/team.svg" alt="Illustration of two members of the dental team" width="320" height="180">
+    <img src="img/office.svg" alt="Illustration of the Acme Dental office, a one-storey building with a green roof" width="320" height="180">
+    <p><a class="button" href="#book"><img src="img/book-icon-white.svg" alt="" width="24" height="24">Get appointment reminders</a></p>
+    <h2>Our services</h2>
+    <ul>
+      <li>Checkups and cleanings</li>
+      <li>Whitening</li>
+      <li>Emergency care</li>
+    </ul>
+    <h2 id="book-heading">Appointment reminders</h2>
+    <form id="book" action="#" aria-labelledby="book-heading">
+      <label for="email">Your email</label>
+      <input id="email" type="email" autocomplete="email" required>
+      <p><button type="submit">Send reminders</button></p>
+    </form>
+  </main>
+  <footer class="page">
+    <p class="muted">Acme Dental is a fictional practice used to demonstrate the Accessibility Page Check connector.</p>
+  </footer>
+</body>
+</html>
