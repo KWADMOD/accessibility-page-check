@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 import path from "node:path";
 import { createLocalScanner } from "./targets/localScanner.js";
 
-// The demo pages in demo/ are what the README, the recording and the cold emails point
+// The demo pages in demo/ are what the README, the docs page and the recording point
 // strangers at, so they must keep doing their job: before.html shows every kind of
 // problem, after.html and index.html scan clean, nothing links to a missing file, and
 // the colours the pages use meet WCAG contrast. These tests stop the pages rotting.
