@@ -38,6 +38,22 @@ claude mcp add --transport http accessibility-check https://a11y-mcp.joelwatson.
 
 Menu names vary between Claude versions. If you cannot find them, look for the option to add a custom connector.
 
+## Try it on the demo pages
+
+Two small practice pages show what the checks catch. The [before page](https://joelwatson.com/a11y-mcp/demo/before.html) has a problem for each of the 10 checks, and the [after page](https://joelwatson.com/a11y-mcp/demo/after.html) fixes them all. Ask Claude, for example:
+
+- "Check https://joelwatson.com/a11y-mcp/demo/before for accessibility problems."
+- "Now check https://joelwatson.com/a11y-mcp/demo/after."
+
+The [demo overview](https://joelwatson.com/a11y-mcp/demo/) explains both pages.
+
+<!-- The prompts use the extensionless addresses on purpose: the site answers .html with a 307 to the
+     extensionless path, and a redirect makes every report open with "The address redirected". -->
+
+## Run it on your own computer
+
+The code is open source under the MIT License: [source code on GitHub](https://github.com/KWADMOD/accessibility-page-check). For Claude Desktop, download `accessibility-mcp-demo.mcpb` from the [latest release](https://github.com/KWADMOD/accessibility-page-check/releases/latest), then in Claude Desktop open Settings > Desktop app > Manage (next to Extensions; Settings > Extensions in older versions) > Advanced settings > Install Extension… and choose the file. The README has the full steps, including Claude Code.
+
 ## Limits
 
 - Pages up to 2 MB are scanned. Larger pages are refused.

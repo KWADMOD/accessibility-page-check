@@ -19,10 +19,12 @@ This is a demo. Hosted limits: pages up to 2 MB, pages nested deeper than 400 le
 ## Run it locally
 
 **Easiest: install the bundle in Claude Desktop.** Download `accessibility-mcp-demo.mcpb` from the [latest release](https://github.com/KWADMOD/accessibility-page-check/releases/latest).
-1. In Claude Desktop open Settings, click the search box at the top left and type `extension`, then open the Extensions result. (Menu names vary between versions, so searching is the reliable way to find it.)
-2. Drag the `.mcpb` file onto that page, or choose Install Extension.
-3. Claude shows a preview of the extension. Click Install. Two warnings are normal here. The extension is unsigned, and Claude shows "access to everything on your computer" for every extension that runs on your machine. This one only fetches the public pages you ask about, refuses private and internal addresses, and stores nothing.
-4. Check that the extension is switched on, then start a new chat.
+1. In Claude Desktop, open **Settings > Desktop app** and choose **Manage** next to **Extensions**. (In the older Settings layout this is **Settings > Extensions**.)
+2. Click **Advanced settings**, find the **Extension Developer** section and click **Install Extension…**.
+3. Choose the `accessibility-mcp-demo.mcpb` file you downloaded, then follow the prompts to install. Claude may warn that the extension is unsigned or that it runs on your computer; that is normal for an extension you install from a file. This one only fetches the public pages you ask about, refuses private and internal addresses, and stores nothing.
+4. Check that the extension is switched on, then start a new chat and ask, for example, "Check https://example.com for accessibility problems."
+
+If **Install Extension…** is missing, your organization may only allow extensions from an approved list; ask your Claude admin. If the install fails, update Claude Desktop and download the file again.
 
 **Or build it yourself** (needs [Node.js](https://nodejs.org/) 22.12 or newer and a copy of this folder; `npm install` is the slow part, a few minutes):
 
